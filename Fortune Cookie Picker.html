@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortune Cookie Fortune Picker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0e68c;
+            padding: 50px;
+        }
+        h1 {
+            color: #d2691e;
+        }
+        .cookie {
+            width: 150px;
+            margin: 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .cookie:hover {
+            transform: scale(1.1);
+        }
+        .fortune {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #8b4513;
+            background-color: #fff8dc;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Fortune Cookie Fortune Picker</h1>
+    <img src="https://www.pngall.com/wp-content/uploads/4/Fortune-Cookie-PNG.png" alt="Fortune Cookie" class="cookie" id="cookieImage">
+    <div id="fortune" class="fortune">Click the cookie to reveal your fortune!</div>
+
+    <script>
+        const fortunes = [
+            "You will discover a new way to fold socks.",
+            "Your next sneeze will be very satisfying.",
+            "Beware of penguins bearing gifts.",
+            "The chicken crossed the road to avoid your future.",
+            "You will win an argument with a pigeon.",
+            "A mysterious message will arrive in your email. Ignore it.",
+            "You will have a sudden craving for pickles.",
+            "Your shoelaces will remain tied all day. Congratulations!",
+            "The number 42 will appear in your life. Pay no attention to it.",
+            "You will encounter a fork in the road. Use it to eat your lunch."
+        ];
+
+        const cookieImage = document.getElementById('cookieImage');
+        const fortuneDiv = document.getElementById('fortune');
+
+        cookieImage.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * fortunes.length);
+            fortuneDiv.textContent = fortunes[randomIndex];
+        });
+    </script>
+
+</body>
+</html>

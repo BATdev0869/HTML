@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useless Cat Fact Generator</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffdab9;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #ff4500;
+        }
+        .fact-box {
+            background-color: #fff8dc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            display: inline-block;
+            max-width: 400px;
+        }
+        .fact {
+            font-size: 22px;
+            color: #2f4f4f;
+            margin-bottom: 20px;
+        }
+        .generate-button {
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .generate-button:hover {
+            background-color: #ff6347;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Useless Cat Fact Generator</h1>
+    <div class="fact-box">
+        <div id="fact" class="fact">Click the button to learn a new, useless cat fact!</div>
+        <button class="generate-button" onclick="generateFact()">Generate Cat Fact</button>
+    </div>
+
+    <script>
+        const facts = [
+            "Did you know... Cats sleep for 70% of their lives. They also dream of owning sports cars.",
+            "Did you know... Cats can make over 100 different sounds. But they secretly wish they could sing opera.",
+            "Did you know... A cat's nose is as unique as a human's fingerprint. They also use it to dial pizza delivery.",
+            "Did you know... Cats have a strong territorial instinct. That's why they claim your bed as their personal trampoline.",
+            "Did you know... Cats have five toes on their front paws, but only four on the back. This helps them balance while playing chess.",
+            "Did you know... A group of cats is called a clowder. They also meet weekly to discuss world domination.",
+            "Did you know... Cats have an excellent sense of hearing. That's why they always hear you talking about their secret cookie stash.",
+            "Did you know... The average cat can jump up to six times its length. They practice by trying out for the Olympics.",
+            "Did you know... Cats groom themselves to reduce stress. They also think it makes them look more photogenic for selfies.",
+            "Did you know... Cats use their whiskers to detect obstacles in the dark. They also use them to predict weather forecasts."
+        ];
+
+        function generateFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            document.getElementById('fact').textContent = facts[randomIndex];
+        }
+    </script>
+
+</body>
+</html>

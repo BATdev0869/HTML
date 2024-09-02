@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Progress Bar</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .progress-container {
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #ccc;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 30px;
+            width: 0;
+            background-color: #76c7c0;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            font-weight: bold;
+            border-radius: 25px 0 0 25px;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar">
+            <div class="progress-bar-fill" id="progress-bar-fill">0%</div>
+        </div>
+        <div class="message" id="progress-message"></div>
+    </div>
+
+    <script>
+        let progress = 0;
+        let progressBarFill = document.getElementById('progress-bar-fill');
+        let progressMessage = document.getElementById('progress-message');
+        let messages = [
+            "Starting up...",
+            "Almost there!",
+            "Calculating the meaning of life...",
+            "Loading your patience...",
+            "Just a bit more!",
+            "Hang tight...",
+            "Isn't this exciting?"
+        ];
+
+        function updateProgress() {
+            progress += Math.random() * 0.5;
+            if (progress >= 99) {
+                progress = 98 + Math.random(); // Slow down near the end
+            }
+            progressBarFill.style.width = progress + '%';
+            progressBarFill.textContent = Math.floor(progress) + '%';
+
+            if (Math.random() > 0.9) {
+                progressMessage.textContent = messages[Math.floor(Math.random() * messages.length)];
+            }
+
+            if (progress < 100) {
+                setTimeout(updateProgress, 100);
+            } else {
+                progressMessage.textContent = "Done! Just kidding... 😉";
+            }
+        }
+
+        updateProgress();
+    </script>
+</body>
+</html>
